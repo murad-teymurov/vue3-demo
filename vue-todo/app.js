@@ -1,21 +1,30 @@
-const { createApp, ref } = Vue;
+// import { createApp } from 'vue'
+// import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
-const app = createApp({
-    setup() {
-        // variables defined in the reactive form
-        const goals = ref([]); 
-        const enteredValue = ref('');
-        function addGoal() {
-            goals.value.push(enteredValue.value); // don't use 'this.'
-            enteredValue.value = '';
-        }
-
+const app = Vue.createApp({
+    data() {
         return {
-            goals,
-            enteredValue,
-            addGoal
-        };
+            title: "The Final Empire",
+            author: "brandon Sanderson",
+            age: 45
+        }
+    },
+    methods: {
+        changeTitle(title) {
+            // this.title = 'word of Randlance'
+            this.title = title
+        }
     }
 });
 
-app.mount("#app");
+app.mount('#app');
+
+// const app = Vue.createApp({
+//     data() {
+//         return {
+//             count: 0
+//         };
+//     }
+// });
+
+// app.mount('#app');
